@@ -1,0 +1,8 @@
+<div class="blokus">
+   <%= for n <- 1..400 do %>
+    <div
+        phx-click="toggle" phx-value-index="<%= n %>"
+        class="<%= if @selected == n, do: "selected" %>"
+        ></div>
+   <% end %>
+</div>

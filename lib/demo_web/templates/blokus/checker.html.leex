@@ -1,0 +1,11 @@
+<div class="blokus">
+   <%= for n <- 1..400 do %>
+    <div
+        phx-click="toggle" phx-value="<%= n %>"
+        class="<%= case rem(n + div(n-1, 20),2) do
+                1 -> "odd"
+                0 -> "even"
+            end %>"
+        ></div>
+   <% end %>
+</div>
