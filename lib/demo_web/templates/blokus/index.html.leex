@@ -1,4 +1,7 @@
-<div class="blokus">
+<div
+    class="blokus"
+    phx-click="toggle" phx-window-keydown="move"
+    >
    <%= for n <- 1..400 do %>
     <div
         phx-click="toggle" phx-value-index="<%= n %>"
