@@ -1,8 +1,8 @@
 @startuml
 Browser -> "Phoenix Router": Initial HTTP Request
+"Phoenix Router" -> LiveView: mount/3
 "Phoenix Router" -> LiveView: render/1
 "Phoenix Router" <- LiveView: HTML
 Browser <- "Phoenix Router": HTML
 Browser -> "Phoenix Router": Upgrade Connection (/live)
-"Phoenix Router" -> LiveView: mount/3
 @enduml
