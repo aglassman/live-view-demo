@@ -1,7 +1,31 @@
 <h1>Available Rooms</h1>
+<%= f = form_for :room, "#", [phx_submit: "new-room"] %>
+    <%= text_input f, :name%>
+    <%= submit "Create Room" %>
+ </form>
+
+ <h2><%= "User Settings: User: #{@user_name}, Color: #{@user_color}" %></h2>
+ <%= f = form_for :user, "#", [phx_submit: "user-settings"] %>
+     <label>
+        User Name: <%= text_input f, :name %>
+     </label>
+     <label>
+         Color: <a target="_blank" href="https://www.w3schools.com/colors/colors_names.asp">Color Names</a>
+         or <a target="_blank" href="https://htmlcolorcodes.com/color-picker/">Hex (e.g. #FF5733)</a>
+        <%= text_input f, :color%>
+     </label>
+     <%= submit "Update User" %>
+  </form>
+
 <div>
     <%= for room <- @rooms do %>
-        <div><h2><%= room %></h2> <button phx-click="kill" phx-value-room="<%=room%>">kill</button></div>
+        <div>
+            <h2><%= room %></h2>
+            <button phx-click="kill-room" phx-value-room="<%=room%>">kill</button>
+            <%= if @user_name != "" && @user_color != "" do %>
+                <a target="_blank" href="<%="/blokus?room=#{room}&name=#{@user_name}&color=#{@user_color}"%>">Join Room</a>
+            <% end %>
+        </div>
         <hr>
     <% end %>
 </div>
