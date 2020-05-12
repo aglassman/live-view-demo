@@ -89,3 +89,31 @@
 .alert:empty {
   display: none;
 }
+
+/*
+ * Blokus
+ */
+
+.blokus {
+  display: grid;
+  grid-template-columns: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px ;
+  grid-template-rows: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
+}
+
+.blokus div {
+  border-width: 1px;
+  border-style: solid;
+}
+
+.blokus div:hover {
+  background-color: yellow;
+}
+
+.odd {
+  background-color: black;
+}
+
+div.selected {
+  border-width: 4px;
+  border-color: red;
+}
