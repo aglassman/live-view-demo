@@ -1,16 +1,20 @@
-<div
-    class="blokus"
-    phx-click="toggle" phx-window-keydown="move"
-    >
+<h1 style="<%= "border-style: solid; border-width: 4px; border-color: #{@color}" %>"><%= @name %></h1>
+<%= if @terminated do %><h1>State Killed</h1><% end%>
+<div class="blokus" phx-click="toggle" phx-window-keydown="keypress">
    <%= for n <- 1..400 do %>
     <div
         phx-click="toggle" phx-value-index="<%= n %>"
-        style="<%= case @block_map[n] do
-                        {:user, name, color} -> "background-color: #{color}"
-                        _ -> ""
-                    end
-                %>"
-        ></div>
+        class="<%=
+            case @selected == n do
+              true -> "selected"
+              _ -> ""
+            end
+        %>"
+        style="<%=
+            case @block_map[n] do
+                {:user, name, color} -> "background-color: #{color}"
+                _ -> ""
+            end
+        %>"></div>
    <% end %>
 </div>
-<p><%= user_names %{} %></p>

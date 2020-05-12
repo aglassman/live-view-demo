@@ -16,8 +16,10 @@ defmodule DemoWeb.Router do
 
   scope "/", DemoWeb do
     pipe_through :browser
-
     live "/", PageLive, :index
+    live("/battleship", DemoWeb.BattleshipLive)
+    live("/blokus", BlokusLive)
+    live("/blokus/rooms", BlokusRooms)
   end
 
   # Other scopes may use custom stacks.
@@ -38,8 +40,6 @@ defmodule DemoWeb.Router do
     scope "/" do
       pipe_through :browser
       live_dashboard "/dashboard", metrics: DemoWeb.Telemetry
-      live("/battleship", DemoWeb.BattleshipLive)
-      live("/blokus", DemoWeb.BlokusLive)
     end
   end
 end

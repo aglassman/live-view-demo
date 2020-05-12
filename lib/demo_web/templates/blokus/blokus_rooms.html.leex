@@ -1,0 +1,7 @@
+<h1>Available Rooms</h1>
+<div>
+    <%= for room <- @rooms do %>
+        <div><h2><%= room %></h2> <button phx-click="kill" phx-value-room="<%=room%>">kill</button></div>
+        <hr>
+    <% end %>
+</div>
