@@ -16,7 +16,7 @@ defmodule DemoWeb.BlokusLive do
 
     block_map = case GenServer.whereis({:global, {:blokus, room}}) do
       nil ->
-        Demo.BlokusServer.start_link(room)
+        Demo.BlokusServer.start(room)
         %{}
       pid ->
         IO.inspect([:found_room, room, pid])

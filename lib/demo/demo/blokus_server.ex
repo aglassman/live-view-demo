@@ -1,8 +1,8 @@
 defmodule Demo.BlokusServer do
   use GenServer
 
-  def start_link(room) do
-    GenServer.start_link(__MODULE__, {room}, name: {:global, {:blokus, room}})
+  def start(room) do
+    GenServer.start(__MODULE__, {room}, name: {:global, {:blokus, room}})
     Phoenix.PubSub.broadcast Demo.PubSub, "blokus_events", {:server_start, room}
   end
 

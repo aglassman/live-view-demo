@@ -20,7 +20,7 @@ defmodule DemoWeb.BlokusRooms do
 
   def handle_event("new-room", %{"room" => %{"name" => name}}, socket) do
     case GenServer.whereis({:global, {:blokus, name}}) do
-      nil -> Demo.BlokusServer.start_link(name)
+      nil -> Demo.BlokusServer.start(name)
       _ -> true
     end
     {:noreply, socket}
